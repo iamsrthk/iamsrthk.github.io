@@ -60,10 +60,10 @@ function updatePosition() {
   y += speedY;
   
   // Make sure the bug stays within the screen by changing its direction when it hits the edges
-  if (x + bugImg.offsetWidth > 500 || x < 0) {
+  if (x + bugImg.offsetWidth > 400 || x < 0) {
     speedX = -speedX;
   }
-  if (y + bugImg.offsetHeight > 800 || y < 0) {
+  if (y + bugImg.offsetHeight > 700 || y < 0) {
     speedY = -speedY;
   }
   
