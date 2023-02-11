@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Bug Squasher Game</title>
+    <style>
+      #game-container {
+  width: 497px;
+  height: 915px;
+  position: relative;
+  margin: 0 auto;
+}
+
+#bug-img {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+}
+
+#score-container {
+  text-align: center;
+  color: aliceblue;
+  margin-top: 20px;
+}
+
+    </style>
+  </head>
+  <body>
+    <body background="https://media.istockphoto.com/id/171309616/photo/green-grass-background.jpg?b=1&s=170667a&w=0&k=20&c=lQvv2ndAtFpY4UCzeAUPAW3cGI_wpDHlK71CAi5O0_w=">
+</div>
+<div id="score-container">
+  <p id="score"><b>Score: 0</b></p>
+</div>
+    <div id="game-container">
+      <img id="bug-img" src="Gobug Singh.png">
+    
+  </body>
+  <script>
+    // Add your JavaScript code here
+// Get the bug image and score elements
+var bugImg = document.getElementById("bug-img");
+var scoreEl = document.getElementById("score");
+
+// Create an audio element for the squishing sound
+var squishSound = new Audio("squish.mp3");
+
+// Set the initial score to 0
+var score = 0;
+
+// Define the initial position and speed of the bug
+var x = Math.random() * 450;
+var y = Math.random() * 450;
+var speedX = 7;
+var speedY = 15;
+
+// Define a function to update the position of the bug
+function updatePosition() {
+  // Increase the x and y position by the speed
+  x += speedX;
+  y += speedY;
+  
+  // Make sure the bug stays within the screen by changing its direction when it hits the edges
+  if (x + bugImg.offsetWidth > 400 || x < 0) {
+    speedX = -speedX;
+  }
+  if (y + bugImg.offsetHeight > 900 || y < 0) {
+    speedY = -speedY;
+  }
+  
+  // Update the position of the bug
+  bugImg.style.left = x + "px";
+  bugImg.style.top = y + "px";
+}
+
+// Increase the score and play the squishing sound when the bug is clicked
+bugImg.addEventListener("click", function() {
+  score++;
+  scoreEl.innerHTML = "GOBUGS SMASHED: " + score;
+  bugImg.style.transform = "scale(0.8)";
+  bugImg.style.border = "30px solid red";
+  squishSound.play();
+  
+  // Reset the bug after 0.5 seconds
+  setTimeout(function() {
+    bugImg.style.transform = "scale(1)";
+    bugImg.style.border = "none";
+  }, 500);
+});
+
+// Set an interval to update the position of the bug every 50 milliseconds
+setInterval(updatePosition, 50);
+
+  </script>
+</html>
