@@ -5,7 +5,7 @@
     <title>Bug Squasher Game</title>
     <style>
       #game-container {
-  width: 497px;
+  width: 500px;
   height: 800px;
   position: relative;
   margin: 0 auto;
@@ -60,7 +60,7 @@ function updatePosition() {
   y += speedY;
   
   // Make sure the bug stays within the screen by changing its direction when it hits the edges
-  if (x + bugImg.offsetWidth > 400 || x < 0) {
+  if (x + bugImg.offsetWidth > 500 || x < 0) {
     speedX = -speedX;
   }
   if (y + bugImg.offsetHeight > 700 || y < 0) {
